@@ -1,231 +1,111 @@
-# 第一章：最后一支药剂
-# 根据 docs/Chapter01.md 生成
+# Chapter01.rpy - 第一章完整脚本（更新版，含阿洛立绘）
 
 label chapter01:
 
-    scene bg research_ruins with dissolve
+    ## Scene 01 - 研究所废墟
+    scene bg research_ruins
+    "风吹过研究所废墟。"
+    "远处断裂的钢架在阴沉天空下显得格外荒凉。"
 
-    "春末。"
+    mc "这里曾是父亲的实验室……如今只剩废墟。"
+    "你找到了一本父亲留下的笔记。"
+    $ player_has_note = True
 
-    "荒原边缘。"
+    "任务已更新：寻找四把钥匙"
 
-    "枯黄的草地间仍残留着零星绿色，远处乌云压低天空。"
-
-    "曾经繁华的研究所如今只剩断裂的钢架，风吹过废墟，发出低沉的呜咽。"
-
-    "二十年前，季节开始失控。"
-
-    "春天越来越短，夏天越来越热，秋天带来疾病，冬天夺走生命。"
-
-    "而人类最后的希望，是一种被称为「灵魂药剂」的东西。"
-
-    # ── Scene 01：研究所废墟 ──
-
-    mc "父亲曾经在这里工作……"
-
-    "实验室早已被掠夺，只剩一间地下储藏室还未完全坍塌。"
-
-    "你在角落发现一本笔记。"
-
-    "\"如果你能看到这段话，说明我已经失败了。\""
-
-    "\"药剂无法拯救所有人，但钥匙或许可以。\""
-
-    "\"找到她们，找到四把钥匙，然后做出选择。\""
-
-    $ _quest_keys = True
-
-    "【获得主线任务：寻找四把钥匙】"
-
-    # ── Scene 02：荒原小镇 ──
-
-    scene bg town with dissolve
-
-    "最近的聚居地正在发生骚乱。"
-
-    "疫病爆发，镇上只剩最后一支灵魂药剂。"
-
-    "居民围绕诊所争吵。"
-
-    "\"我快死了！药剂应该给我！\""
-
-    "\"我的孩子发烧三天了！\""
-
-    "\"别吵了！只有一支！只有一支！\""
-
-    scene cg last_medicine with dissolve
-
-    alo "欢迎来到荒原。"
-
-    alo "第一次见到这种场面？"
-
-    mc "每天都会这样？"
-
-    alo "每天。每个聚居地，都在决定谁活，谁死。"
-
-    hide cg last_medicine with dissolve
-
+    ## Scene 02 - 荒原小镇 / 药剂事件
     scene bg town
+    show alo normal at left
+    show cg last_medicine
+
+    alo "欢迎来到荒原。第一次见到这种场面？"
+    mc "每天都会这样？"
+    alo "每天。每个聚居地都在决定谁活，谁死。"
 
     menu:
-        "交给生病的孩子":
+        "把药剂给生病的孩子":
             $ humanity += 2
             $ logic -= 1
-            jump chapter01_choice_child
+            $ alo_affection += 5
+            mc "孩子先得到药剂吧。"
+            "孩子活了下来，母亲感激，老人遗憾死亡。"
 
-        "交给年迈老人":
+        "把药剂给年迈老人":
             $ authority += 1
             $ humanity += 1
-            jump chapter01_choice_elder
+            mc "老人先吧。"
+            "老人存活，孩子病情恶化，小镇出现不满。"
 
-        "保留药剂寻找研究用途":
+        "保留药剂用于研究":
             $ logic += 2
             $ transcendence += 1
             $ future_research += 1
-            jump chapter01_choice_research
+            mc "暂时保留药剂。"
+            "双方都没有得到药剂，研究数据保存。"
 
-label chapter01_choice_child:
+    hide cg last_medicine
+    hide alo
 
-    "孩子活了下来，母亲感激涕零。"
-
-    "而那位老人，在当晚停止了呼吸。"
-
-    jump chapter01_scene03
-
-label chapter01_choice_elder:
-
-    "老人得以续命，但孩子的病情每况愈下。"
-
-    "小镇上开始弥漫不满的情绪。"
-
-    jump chapter01_scene03
-
-label chapter01_choice_research:
-
-    "双方都没有得到药剂。"
-
-    "但你保留了珍贵的研究样本。"
-
-    jump chapter01_scene03
-
-label chapter01_scene03:
-
-    # ── Scene 03：钟楼避难所 ──
-
-    scene bg clocktower with dissolve
-
-    "夜晚，钟楼避难所。"
+    ## Scene 03 - 钟楼夜谈
+    scene bg clocktower
+    show alo normal at left
 
     alo "你知道为什么药剂这么少吗？"
-
     mc "生产失败？"
-
     alo "不。有人故意控制数量。"
-
     mc "谁？"
-
     alo "不知道。但你父亲一直在调查这件事。"
 
-    "【获得线索：第一把钥匙可能位于湿地区域】"
+    hide alo
 
-    # ── Scene 04：湿地 ──
+    "获得线索：第一把钥匙可能位于湿地区域。"
 
-    scene bg wetland with dissolve
+    ## Scene 04 - 湿地清晨
+    scene bg wetland
+    show xia normal at center
 
-    "第二天清晨，春雨降临。"
-
-    "空气中出现久违的青草气味，河流仍在流动。"
-
-    show xia serious at center with dissolve
+    "春雨轻洒湿地，河流缓缓流动，野花点缀四周。"
 
     xia "你踩到它们了。"
-
     mc "什么？"
-
-    xia "刚发芽的新苗。它们比你更难活下来。"
-
-    "林夏蹲下整理植物，动作十分轻柔。"
-
-    mc "这里只有你一个人？"
-
-    show xia normal
-
+    xia "刚发芽的新苗，它们比你更难活下来。"
+    mc "这里只有你一个人吗？"
     xia "还有很多生命，只是你看不见。"
-
     mc "你认识我父亲？"
+    xia "他曾经想拯救世界，后来发现……世界并不想被拯救。"
 
-    show xia serious
+    "新目标已更新：协助林夏调查湿地异常"
 
-    "林夏沉默，随后点头。"
-
-    xia "他曾经想拯救世界。后来发现，世界并不想被拯救。"
-
-    "【获得新目标：协助林夏调查湿地异常】"
-
+    ## 第二个关键选择
     menu:
-        "帮忙采集样本":
+        "帮助林夏采集样本":
             $ xia_affection += 10
             $ humanity += 1
-            jump chapter01_help_sample
+            mc "我来帮你采集样本。"
+            "开启支线：湿地调查"
 
         "优先寻找钥匙":
             $ xia_affection += 5
             $ logic += 1
-            jump chapter01_find_key
+            mc "我先继续寻找钥匙。"
 
-label chapter01_help_sample:
-
-    show xia happy
-
-    xia "谢谢。这些数据很重要。"
-
-    jump chapter01_scene05
-
-label chapter01_find_key:
-
-    show xia normal
-
-    xia "……好吧。跟我来。"
-
-    jump chapter01_scene05
-
-label chapter01_scene05:
-
-    # ── Scene 05：湿地深处 ──
-
-    scene bg wetland
-
-    show xia serious at center
-
-    "你们在湿地深处发现大量异常植物。"
-
-    "植物组织中检测出药剂成分——灵魂药剂可能并非人工制造，而是来源于自然。"
-
+    ## Scene 05 - 湿地深处 / CG
+    show xia happy at center
+    "玩家发现大量异常植物，植物组织中检测出药剂成分。"
     xia "如果这是真的，整个世界都会被改变。"
 
-    "在废弃观测站，你发现了父亲留下的录音。"
+    show xia serious at center
+    "玩家在废弃观测站发现父亲留下的录音。"
+    "录音：第一把钥匙已经苏醒。不要相信任何单一路线，人类无法依靠一个答案存活。"
 
-    "\"第一把钥匙已经苏醒。\""
+    hide xia
 
-    "\"不要相信任何单一路线。人类无法依靠一个答案存活。\""
-
-    hide xia with dissolve
-
-    # ── 章节结束 ──
-
-    scene cg qinghe_teaser with dissolve
-
-    "湿地之外，远方山谷中，一道实验室灯光亮起。"
-
-    "一个陌生的身影，在窗前停驻片刻，随即隐入黑暗。"
-
-    "【解锁角色档案：林夏】"
-    "【解锁新区域：河谷实验站】"
+    ## Chapter End - 顾青禾剪影
+    scene cg qinghe_teaser
+    "镜头拉远，湿地之外，远方山谷实验室灯光亮起。"
+    "顾青禾剪影首次登场。"
 
     scene black with dissolve
 
-    "第一章 · 完"
-
-    "下一章：《进化之路》"
-
+    "第一章完。"
     return

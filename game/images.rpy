@@ -1,12 +1,7 @@
-# 图像定义
-# 素材目录：game/images/{bg,characters,cg}/
-# 上传对应 PNG 后自动生效；未上传时使用纯色占位
+# 图像定义 — 全部素材映射
+# 已上传 PNG 自动加载，未上传则回退纯色占位
 
 # ── 背景 ──────────────────────────────────────────
-# game/images/bg/bg_research_ruins.png
-# game/images/bg/bg_town.png
-# game/images/bg/bg_clocktower.png
-# game/images/bg/bg_wetland.png
 
 image bg research_ruins = ConditionSwitch(
     "renpy.loadable('images/bg/bg_research_ruins.png')", "images/bg/bg_research_ruins.png",
@@ -31,13 +26,6 @@ image bg wetland = ConditionSwitch(
 image bg wasteland = Solid("#1a1a2e")
 
 # ── 角色立绘 ──────────────────────────────────────
-# game/images/characters/xia_normal.png
-# game/images/characters/xia_happy.png
-# game/images/characters/xia_serious.png
-# game/images/characters/alo_normal.png
-# game/images/characters/qinghe_normal.png  （待上传）
-# game/images/characters/suli_normal.png    （待上传）
-# game/images/characters/yehan_normal.png   （待上传）
 
 image xia normal = ConditionSwitch(
     "renpy.loadable('images/characters/xia_normal.png')", "images/characters/xia_normal.png",
@@ -75,8 +63,6 @@ image yehan normal = ConditionSwitch(
 )
 
 # ── CG ────────────────────────────────────────────
-# game/images/cg/cg_last_medicine.png
-# game/images/cg/cg_qinghe_teaser.png
 
 image cg last_medicine = ConditionSwitch(
     "renpy.loadable('images/cg/cg_last_medicine.png')", "images/cg/cg_last_medicine.png",
