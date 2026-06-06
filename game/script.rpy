@@ -2,7 +2,7 @@
 
 label start:
 
-    scene bg wasteland
+    scene bg research_ruins
 
     "欢迎来到《荒原》。"
 
