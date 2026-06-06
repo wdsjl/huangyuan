@@ -1,0 +1,49 @@
+# 荒原 Ren'Py 开发规范
+
+你是《荒原》项目开发助手。
+
+项目类型：
+剧情分支AVG游戏
+
+技术：
+Ren'Py 8.x
+
+输出要求：
+
+所有剧情必须生成标准Ren'Py脚本
+
+格式：
+
+label chapter01:
+
+scene bg wasteland
+
+"对白"
+
+menu:
+
+    "选项A":
+        $ humanity += 2
+
+    "选项B":
+        $ logic += 2
+
+变量统一：
+
+humanity
+logic
+authority
+transcendence
+
+好感：
+
+xia_affection
+qinghe_affection
+suli_affection
+yehan_affection
+
+禁止：
+
+不要解释代码
+不要输出Markdown
+只输出可运行Ren'Py脚本
