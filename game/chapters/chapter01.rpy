@@ -15,8 +15,8 @@ label chapter01:
 
     ## Scene 02 - 荒原小镇 / 药剂事件
     scene bg town
-    show alo normal at left
-    show cg last_medicine
+    show alo normal at sprite_left
+    show cg last_medicine at cg_overlay
 
     alo "欢迎来到荒原。第一次见到这种场面？"
     mc "每天都会这样？"
@@ -48,7 +48,7 @@ label chapter01:
 
     ## Scene 03 - 钟楼夜谈
     scene bg clocktower
-    show alo normal at left
+    show alo normal at sprite_left
 
     alo "你知道为什么药剂这么少吗？"
     mc "生产失败？"
@@ -62,7 +62,7 @@ label chapter01:
 
     ## Scene 04 - 湿地清晨
     scene bg wetland
-    show xia normal at center
+    show xia normal at sprite_center
 
     "春雨轻洒湿地，河流缓缓流动，野花点缀四周。"
 
@@ -90,18 +90,18 @@ label chapter01:
             mc "我先继续寻找钥匙。"
 
     ## Scene 05 - 湿地深处 / CG
-    show xia happy at center
+    show xia happy at sprite_center
     "玩家发现大量异常植物，植物组织中检测出药剂成分。"
     xia "如果这是真的，整个世界都会被改变。"
 
-    show xia serious at center
+    show xia serious at sprite_center
     "玩家在废弃观测站发现父亲留下的录音。"
     "录音：第一把钥匙已经苏醒。不要相信任何单一路线，人类无法依靠一个答案存活。"
 
     hide xia
 
     ## Chapter End - 顾青禾剪影
-    scene cg qinghe_teaser
+    scene cg qinghe_teaser at cg_scene
     "镜头拉远，湿地之外，远方山谷实验室灯光亮起。"
     "顾青禾剪影首次登场。"
 

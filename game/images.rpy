@@ -1,25 +1,29 @@
 # 图像定义 — 全部素材映射
-# 已上传 PNG 自动加载，未上传则回退纯色占位
+# 背景裁切铺满 1920x1080，立绘由 transforms.rpy 控制位置
 
-# ── 背景 ──────────────────────────────────────────
+# ── 背景（cover 铺满屏幕，避免两侧黑边）──────────────────
 
 image bg research_ruins = ConditionSwitch(
-    "renpy.loadable('images/bg/bg_research_ruins.png')", "images/bg/bg_research_ruins.png",
+    "renpy.loadable('images/bg/bg_research_ruins.png')",
+    Transform("images/bg/bg_research_ruins.png", fit="cover", xysize=(1920, 1080)),
     "True", Solid("#1e2a3a"),
 )
 
 image bg town = ConditionSwitch(
-    "renpy.loadable('images/bg/bg_town.png')", "images/bg/bg_town.png",
+    "renpy.loadable('images/bg/bg_town.png')",
+    Transform("images/bg/bg_town.png", fit="cover", xysize=(1920, 1080)),
     "True", Solid("#2a3a2e"),
 )
 
 image bg clocktower = ConditionSwitch(
-    "renpy.loadable('images/bg/bg_clocktower.png')", "images/bg/bg_clocktower.png",
+    "renpy.loadable('images/bg/bg_clocktower.png')",
+    Transform("images/bg/bg_clocktower.png", fit="cover", xysize=(1920, 1080)),
     "True", Solid("#2e2a3a"),
 )
 
 image bg wetland = ConditionSwitch(
-    "renpy.loadable('images/bg/bg_wetland.png')", "images/bg/bg_wetland.png",
+    "renpy.loadable('images/bg/bg_wetland.png')",
+    Transform("images/bg/bg_wetland.png", fit="cover", xysize=(1920, 1080)),
     "True", Solid("#1a2e2e"),
 )
 

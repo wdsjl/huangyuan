@@ -94,14 +94,14 @@ label chapter01:
     "玩家发现大量异常植物，植物组织中检测出药剂成分。"
     xia "如果这是真的，整个世界都会被改变。"
 
-    show xia serious at center
+    show xia serious at sprite_center
     "玩家在废弃观测站发现父亲留下的录音。"
     "录音：第一把钥匙已经苏醒。不要相信任何单一路线，人类无法依靠一个答案存活。"
 
     hide xia
 
     ## Chapter End - 顾青禾剪影
-    scene cg qinghe_teaser
+    scene cg qinghe_teaser at cg_scene
     "镜头拉远，湿地之外，远方山谷实验室灯光亮起。"
     "顾青禾剪影首次登场。"
 
